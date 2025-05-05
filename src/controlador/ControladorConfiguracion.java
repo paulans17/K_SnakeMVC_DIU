@@ -23,5 +23,10 @@ public class ControladorConfiguracion implements Controlador {
         ventana.repaint();
 
         vista.getTamano();
+
+        vista.getBtnVolver().addActionListener(e -> {
+            ControladorMenu menu = new ControladorMenu(ventana);
+            menu.inicializar();
+        });
     }
 }

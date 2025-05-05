@@ -28,7 +28,7 @@ public class VistaTutorial extends JPanel {
         );
 
 
-        btnVolver = new JButton("BACK");
+        btnVolver = new JButton("Volver");
 
         add(new JScrollPane(textoAyuda), BorderLayout.CENTER);
         add(btnVolver, BorderLayout.SOUTH);

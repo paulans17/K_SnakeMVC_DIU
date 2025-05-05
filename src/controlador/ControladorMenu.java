@@ -5,7 +5,6 @@ import vista.VistaMenu;
 import interfaces.Controlador;
 
 import javax.swing.*;
-import java.awt.event.ActionListener;
 
 public class ControladorMenu implements Controlador {
 
@@ -26,16 +25,24 @@ public class ControladorMenu implements Controlador {
         ventana.repaint();
 
         //LISTENERS
-        vista.getBtnJugar().addActionListener(e ->
-                System.out.println("Iniciar juego"));
+        vista.getBtnJugar().addActionListener(e -> {
+            ControladorJuego cj = new ControladorJuego(ventana);
+            cj.inicializar();
+        });
 
-        vista.getBtnConfiguracion().addActionListener(e ->
-                System.out.println("Configuración"));
+        vista.getBtnConfiguracion().addActionListener(e -> {
+            ControladorConfiguracion cc = new ControladorConfiguracion(ventana);
+            cc.inicializar();
+        });
 
-        vista.getBtnRanking().addActionListener(e ->
-                System.out.println("Ranking"));
+        vista.getBtnRanking().addActionListener(e -> {
+            ControladorRanking cr = new ControladorRanking(ventana);
+            cr.inicializar();
+        });
 
-        vista.getBtnAyuda().addActionListener(e ->
-                System.out.println("Ayuda"));
+        vista.getBtnAyuda().addActionListener(e -> {
+            ControladorTutorial ct = new ControladorTutorial(ventana);
+            ct.inicializar();
+        });
     }
 }

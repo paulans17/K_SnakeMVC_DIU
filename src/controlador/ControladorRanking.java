@@ -24,5 +24,10 @@ public class ControladorRanking implements Controlador {
 
         //luego se caragan los datos desde un fichero
         vista.getAreaRanking().setText("");
+
+        vista.getBtnVolver().addActionListener(e -> {
+            ControladorMenu menu = new ControladorMenu(ventana);
+            menu.inicializar();
+        });
     }
 }

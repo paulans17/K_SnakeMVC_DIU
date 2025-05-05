@@ -5,14 +5,14 @@ import java.awt.Point;
 
 public class Fruta {
 
-    private Fruta posicion;
+    private Point posicion;
 
     //Constructor
     public Fruta(){
 
     }
 
-    public Fruta getPosicion() {
+    public Point getPosicion() {
         return posicion;
     }
 

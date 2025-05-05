@@ -15,8 +15,7 @@ public class VistaRanking extends JPanel {
         areaRanking = new JTextArea();
         areaRanking.setEditable(false);
         areaRanking.setFont(new Font("Monospaced", Font.PLAIN, 14));
-
-        btnVolver = new JButton("BACK");
+        btnVolver = new JButton("Volver");
 
         add(new JScrollPane(areaRanking), BorderLayout.CENTER);
         add(btnVolver, BorderLayout.SOUTH);

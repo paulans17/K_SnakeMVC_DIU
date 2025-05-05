@@ -6,7 +6,7 @@ import java.awt.Point;
 
 public class Serpiente {
 
-    private LinkedList<Serpiente> cuerpoSerpiente;
+    private LinkedList<Point> cuerpoSerpiente;
     private Direccion direccionActual;
 
     //Constructor
@@ -29,7 +29,7 @@ public class Serpiente {
         return false;
     }
 
-    public LinkedList<Serpiente> getCuerpo() {
+    public LinkedList<Point> getCuerpo() {
         return cuerpoSerpiente;
     }
 

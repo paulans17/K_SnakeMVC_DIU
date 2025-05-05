@@ -8,7 +8,9 @@ public class Configuracion {
 
     //Valores por defecto
     public Configuracion () {
-
+        this.velocidad = 5;
+        this.tamanoTablero = 20;
+        this.modoDaltonico = false;
     }
 
     public int getVelocidad() {
