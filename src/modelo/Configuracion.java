@@ -1,16 +1,19 @@
 package modelo;
 
+//IMPORTACIONES Y LIBRERÍAS
+import vista.ColoresAccesibles.ModoColor;
+
 public class Configuracion {
 
     private int velocidad;
     private int tamanoTablero;
-    private boolean modoDaltonico;
+    private ModoColor modoColor;
 
     //Valores por defecto
     public Configuracion () {
         this.velocidad = 5;
         this.tamanoTablero = 20;
-        this.modoDaltonico = false;
+        this.modoColor = ModoColor.NORMAL;
     }
 
     public int getVelocidad() {
@@ -29,11 +32,11 @@ public class Configuracion {
         this.tamanoTablero = tamanoTablero;
     }
 
-    public boolean isModoDaltonico() {
-        return modoDaltonico;
+    public ModoColor getModoColor() {
+        return modoColor;
     }
 
-    public void setModoDaltonico(boolean modoDaltonico) {
-        this.modoDaltonico = modoDaltonico;
+    public void setModoColor(ModoColor modoColor) {
+        this.modoColor = modoColor;
     }
 }

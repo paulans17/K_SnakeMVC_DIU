@@ -4,6 +4,7 @@ package controlador;
 import modelo.Configuracion;
 import vista.VistaConfiguracion;
 import interfaces.Controlador;
+import vista.ColoresAccesibles.ModoColor;
 
 import javax.swing.*;
 
@@ -35,7 +36,9 @@ public class ControladorConfiguracion implements Controlador {
             //Guardar valores en el modelo
             configuracion.setVelocidad(vista.getVelocidad());
             configuracion.setTamanoTablero(vista.getTamano());
-            configuracion.setModoDaltonico(vista.isModoDaltonico());
+            configuracion.setModoColor(
+                    vista.isModoDaltonico() ? ModoColor.DALTÓNICO : ModoColor.NORMAL
+            );
 
             ControladorMenu menu = new ControladorMenu(ventana);
             menu.inicializar();

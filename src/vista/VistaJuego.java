@@ -1,14 +1,19 @@
 package vista;
 
-//LIBRERÍAS
+//IMPORTACIONES Y LIBRERÍAS
 import javax.swing.*;
 import java.awt.*;
 
+import vista.ColoresAccesibles.ModoColor;
+
 public class VistaJuego extends JPanel {
 
-    public VistaJuego() {
+    private ModoColor modoColor;
+
+    public VistaJuego(ModoColor modoColor) {
+        this.modoColor = modoColor;
         setPreferredSize(new Dimension(400, 400));
-        setBackground(Color.BLACK);
+        setBackground(ColoresAccesibles.getColorFondo(modoColor));
     }
 
     @Override
