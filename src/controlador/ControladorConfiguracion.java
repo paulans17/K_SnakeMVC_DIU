@@ -1,6 +1,5 @@
 package controlador;
 
-//IMPORTACIONES Y LIBRERÍAS
 import modelo.Configuracion;
 import vista.VistaConfiguracion;
 import interfaces.Controlador;
@@ -10,13 +9,18 @@ import javax.swing.*;
 
 public class ControladorConfiguracion implements Controlador {
 
-    private static Configuracion configuracion = new Configuracion(); //para guardar los cambios
+    private static Configuracion configuracion = new Configuracion(); // mantiene los ajustes
     private JFrame ventana;
     private VistaConfiguracion vista;
 
     public ControladorConfiguracion(JFrame ventana) {
         this.ventana = ventana;
         this.vista = new VistaConfiguracion();
+
+        // Recuperar valores guardados
+        vista.setVelocidad(configuracion.getVelocidad());
+        vista.setTamano(configuracion.getTamanoTablero());
+        vista.setModoDaltonico(configuracion.getModoColor() == ModoColor.DALTÓNICO);
     }
 
     public static Configuracion getConfiguracion() {
@@ -29,19 +33,23 @@ public class ControladorConfiguracion implements Controlador {
         ventana.revalidate();
         ventana.repaint();
 
-        vista.getTamano();
-
         vista.getBtnVolver().addActionListener(e -> {
-
-            //Guardar valores en el modelo
             configuracion.setVelocidad(vista.getVelocidad());
             configuracion.setTamanoTablero(vista.getTamano());
             configuracion.setModoColor(
                     vista.isModoDaltonico() ? ModoColor.DALTÓNICO : ModoColor.NORMAL
             );
 
-            ControladorMenu menu = new ControladorMenu(ventana);
-            menu.inicializar();
+            System.out.println("CONFIG GUARDADA: velocidad=" + configuracion.getVelocidad()
+                    + ", tamano=" + configuracion.getTamanoTablero()
+                    + ", modo=" + configuracion.getModoColor());
+
+            new ControladorMenu(ventana).inicializar();
         });
+
+        vista.setVelocidad(configuracion.getVelocidad());
+        vista.setTamano(configuracion.getTamanoTablero());
+        vista.setModoDaltonico(configuracion.getModoColor() == ModoColor.DALTÓNICO);
+
     }
 }

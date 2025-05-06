@@ -1,23 +1,26 @@
 package modelo;
 
-//LIBRERÍAS
 import java.awt.Point;
+import java.util.Random;
 
 public class Fruta {
 
     private Point posicion;
+    private Random random;
 
-    //Constructor
-    public Fruta(){
-
+    public Fruta() {
+        random = new Random();
+        posicion = new Point(10, 10); // Valor por defecto, se puede sobrescribir con generarNueva()
     }
 
     public Point getPosicion() {
         return posicion;
     }
 
-    //Generar fruta en posición aleatoria
-    public void generarNueva (int ancho, int alto){
-
+    // Genera una nueva posición aleatoria
+    public void generarNueva(int ancho, int alto) {
+        int x = random.nextInt(ancho);
+        int y = random.nextInt(alto);
+        posicion = new Point(x, y);
     }
 }

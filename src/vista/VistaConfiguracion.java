@@ -59,7 +59,12 @@ public class VistaConfiguracion extends JPanel {
     }
 
     public int getTamano() {
-        return comboTamano.getSelectedIndex();
+        return switch (comboTamano.getSelectedIndex()) {
+            case 0 -> 10;
+            case 1 -> 15;
+            case 2 -> 20;
+            default -> 15; // valor por defecto
+        };
     }
 
     public boolean isModoDaltonico() {
@@ -69,4 +74,23 @@ public class VistaConfiguracion extends JPanel {
     public JButton getBtnVolver() {
         return btnVolver;
     }
+
+    public void setVelocidad(int valor) {
+        sliderVelocidad.setValue(valor);
+    }
+
+    public void setTamano(int tamanoReal) {
+        int index;
+        if (tamanoReal == 10) index = 0;
+        else if (tamanoReal == 15) index = 1;
+        else if (tamanoReal == 20) index = 2;
+        else index = 1; // valor por defecto
+
+        comboTamano.setSelectedIndex(index);
+    }
+
+    public void setModoDaltonico(boolean activado) {
+        checkDaltonico.setSelected(activado);
+    }
+
 }
