@@ -12,21 +12,21 @@ public class ColoresAccesibles {
     public static Color getColorFondo(ModoColor modo) {
         return switch (modo) {
             case DALTÓNICO -> Color.DARK_GRAY;
-            default -> Color.BLACK;
+            case NORMAL -> Color.BLACK;
         };
     }
 
     public static Color getColorSerpiente(ModoColor modo) {
         return switch (modo) {
             case DALTÓNICO -> new Color(0, 255, 255); // Cian brillante
-            default -> Color.GREEN;
+            case NORMAL -> Color.GREEN;
         };
     }
 
     public static Color getColorFruta(ModoColor modo) {
         return switch (modo) {
             case DALTÓNICO -> Color.ORANGE;
-            default -> Color.RED;
+            case NORMAL -> Color.RED;
         };
     }
 }
