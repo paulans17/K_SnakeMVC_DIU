@@ -4,6 +4,7 @@ import modelo.Serpiente;
 import modelo.Fruta;
 import vista.ColoresAccesibles.ModoColor;
 import modelo.Direccion;
+import modelo.Puntuacion;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +17,7 @@ public class VistaJuego extends JPanel {
     private Serpiente serpiente;
     private Fruta fruta;
     private ModoColor modoColor;
+    private Puntuacion puntuacion;
 
     private Image imgCabeza;
     private Image imgCuerpo;
@@ -27,12 +29,16 @@ public class VistaJuego extends JPanel {
 
     private Image imgFondo;
 
-    public VistaJuego(ModoColor modoColor, Serpiente serpiente, Fruta fruta, int filas, int columnas) {
+    private String mensajePuntos = "";
+    private long tiempoMensaje = 0;
+
+    public VistaJuego(ModoColor modoColor, Serpiente serpiente, Fruta fruta, int filas, int columnas, Puntuacion puntuacion) {
         this.modoColor = modoColor;
         this.serpiente = serpiente;
         this.fruta = fruta;
         this.filas = filas;
         this.columnas = columnas;
+        this.puntuacion = puntuacion;
 
         int dimension = 640;
         this.tamanoCasilla = dimension / Math.max(filas, columnas);
@@ -44,8 +50,13 @@ public class VistaJuego extends JPanel {
         imgCuerpo = new ImageIcon(getClass().getResource("/img/CuerpoSerpiente.png")).getImage();
         imgFruta = new ImageIcon(getClass().getResource("/img/Manzana.png")).getImage();
         imgFondo = new ImageIcon(getClass().getResource("/img/FondoJuego.png")).getImage();
+
     }
 
+    public void mostrarMensajePuntos(String mensaje) {
+        this.mensajePuntos = mensaje;
+        this.tiempoMensaje = System.currentTimeMillis();
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -111,6 +122,24 @@ public class VistaJuego extends JPanel {
         Point f = fruta.getPosicion();
         if (f != null) {
             g.drawImage(imgFruta, f.x * tamanoCasilla, f.y * tamanoCasilla, tamanoCasilla, tamanoCasilla, this);
+        }
+
+        //Puntuacion
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Monospaced", Font.BOLD, 14));
+        g.drawString("Manzanas: " + puntuacion.getManzanas(), 10, 20);
+        g.drawString("Puntos: " + puntuacion.getPuntos(), 10, 40);
+
+        // Mostrar el mensaje temporal de puntos
+        if (!mensajePuntos.isEmpty()) {
+            long ahora = System.currentTimeMillis();
+            if (ahora - tiempoMensaje < 1000) {
+                g.setFont(new Font("Arial", Font.BOLD, 24));
+                g.setColor(Color.YELLOW);
+                g.drawString(mensajePuntos, 10, 70);
+            } else {
+                mensajePuntos = "";
+            }
         }
     }
 }
