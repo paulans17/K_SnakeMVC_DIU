@@ -1,8 +1,14 @@
+<p align="center"><img src="screenshots/snake-logo.png" alt="SnakeMVC" width="320"></p>
+
 # 🐍 SnakeMVC
 
 El Snake de toda la vida hecho en **Java + Swing** y montado con el patrón **Modelo-Vista-Controlador**. Lo hice para la asignatura de **Diseño de Interfaces de Usuario (DIU)**, en 2º del Grado en Ingeniería Informática de Servicios y Aplicaciones (UVa, campus de Segovia).
 
 La gracia no era solo que el juego funcionase. También tenía que ser **usable y accesible**, así que además de jugar tiene configuración, ranking, tutorial y un modo para daltónicos.
+
+![Menú, configuración y ayuda del juego](screenshots/snake-pantallas.png)
+
+Los sprites (la serpiente, las frutas y el fondo) los diseñé yo.
 
 ## Qué tiene
 
